@@ -6,7 +6,6 @@
 <!--delete-->
 ---
 <!--/delete-->
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
 ## Installation
 
