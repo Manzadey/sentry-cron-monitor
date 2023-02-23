@@ -1,0 +1,43 @@
+{
+  "name": "manzadey/sentry-cron-monitor",
+  "description": "Package for sentry cron monitors",
+  "homepage": "https://github.com/manzadey/sentry-cron-monitor",
+  "minimum-stability": "dev",
+  "keywords": [
+    "sentry",
+    "cron-monitor"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrey Manzadey",
+      "homepage": "https://github.com/manzadey",
+      "email": "andrey.manzadey@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/manzadey/sentry-cron-monitor",
+    "docs": "https://github.com/manzadey/sentry-cron-monitor/blob/master/README.md",
+    "issues": "https://github.com/manzadey/sentry-cron-monitor/issues"
+  },
+  "type": "package",
+  "require": {
+    "php": "^8.1",
+    "guzzlehttp/guzzle": "^7.5"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "symfony/var-dumper": "^6.2",
+    "phpunit/phpunit": "10",
+    "vlucas/phpdotenv": "5.5.x-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Manzadey\\SentryCronMonitor\\": "src/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit tests"
+  }
+}
