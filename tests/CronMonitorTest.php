@@ -31,6 +31,8 @@ class CronMonitorTest extends TestCase
      */
     public function testCronMonitorProgressAndError() : void
     {
+        sleep(10);
+
         $monitor = new CronMonitor($_ENV['PHPUNIT_DSN']);
 
         $monitor->progress($_ENV['PHPUNIT_MONITOR_ID']);
@@ -49,6 +51,8 @@ class CronMonitorTest extends TestCase
      */
     public function testCronMonitorProgressAndOk() : void
     {
+        sleep(10);
+
         $monitor = new CronMonitor($_ENV['PHPUNIT_DSN']);
 
         $monitor->progress($_ENV['PHPUNIT_MONITOR_ID']);
@@ -67,6 +71,8 @@ class CronMonitorTest extends TestCase
      */
     public function testCronMonitorProgressAndErrorWithSleep() : void
     {
+        sleep(10);
+
         $monitor = new CronMonitor($_ENV['PHPUNIT_DSN']);
 
         $monitor->progress($_ENV['PHPUNIT_MONITOR_ID']);
@@ -84,6 +90,8 @@ class CronMonitorTest extends TestCase
      */
     public function testCronMonitorWithOkException() : void
     {
+        sleep(10);
+
         $this->expectException(CronMonitorException::class);
 
         $monitor = new CronMonitor($_ENV['PHPUNIT_DSN']);
@@ -105,6 +113,8 @@ class CronMonitorTest extends TestCase
 
     public function testCronMonitorTime() : void
     {
+        sleep(10);
+
         $monitor = new CronMonitor($_ENV['PHPUNIT_DSN']);
 
         $this->assertNull($monitor->getTime());
@@ -117,7 +127,7 @@ class CronMonitorTest extends TestCase
         $this->assertNull($monitor->getTimeEnd());
         $this->assertNull($monitor->getTimeSeconds());
 
-        sleep(2);
+        sleep(5);
 
         $monitor->ok();
         $this->assertTrue($monitor->getTimeEnd() > $monitor->getTime());
