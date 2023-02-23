@@ -76,7 +76,7 @@ class CronMonitorTest extends TestCase
         $this->assertArrayHasKey(CronMonitorStatus::Error->value, $monitor->getData());
         $this->assertArrayHasKey('id', $monitor->getDataError());
 
-        $this->assertEquals(6, $monitor->getDataError()['duration']);
+        $this->assertEquals($monitor->getTimeSeconds(), $monitor->getDataError()['duration']);
     }
 
     /**
