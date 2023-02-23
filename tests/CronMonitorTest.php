@@ -102,4 +102,28 @@ class CronMonitorTest extends TestCase
 
         $monitor->error();
     }
+
+    public function testCronMonitorTime() : void
+    {
+        $monitor = new CronMonitor($_ENV['PHPUNIT_DSN']);
+
+        $this->assertNull($monitor->getTime());
+        $this->assertNull($monitor->getTimeEnd());
+        $this->assertNull($monitor->getTimeSeconds());
+
+        $monitor->progress($_ENV['PHPUNIT_MONITOR_ID']);
+
+        $this->assertIsInt($monitor->getTime());
+        $this->assertNull($monitor->getTimeEnd());
+        $this->assertNull($monitor->getTimeSeconds());
+
+        sleep(2);
+
+        $monitor->ok();
+        $this->assertTrue($monitor->getTimeEnd() > $monitor->getTime());
+        $this->assertTrue($monitor->getTimeSeconds() >= 2);
+        $this->assertIsInt($monitor->getTime());
+        $this->assertIsInt($monitor->getTimeEnd());
+        $this->assertIsInt($monitor->getTimeSeconds());
+    }
 }

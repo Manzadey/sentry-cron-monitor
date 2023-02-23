@@ -13,6 +13,8 @@ class CronMonitor
 {
     private ?int $time = null;
 
+    private ?int $timeEnd = null;
+
     private ?string $checkinId = null;
 
     private array $errors = [];
@@ -97,11 +99,13 @@ class CronMonitor
     {
         $this->hasCheckinId();
 
+        $this->timeEnd = time();
+
         return $this->request(
             status: CronMonitorStatus::Ok,
             uri: sprintf(CronMonitorStatus::getUri(CronMonitorStatus::Ok), $this->monitorId, $this->checkinId),
             data: [
-                'duration' => time() - $this->time,
+                'duration' => $this->getTimeSeconds(),
             ],
         );
     }
@@ -120,11 +124,13 @@ class CronMonitor
     {
         $this->hasCheckinId();
 
+        $this->timeEnd = time();
+
         return $this->request(
             status: CronMonitorStatus::Error,
             uri: sprintf(CronMonitorStatus::getUri(CronMonitorStatus::Error), $this->monitorId, $this->checkinId),
             data: [
-                'duration' => time() - $this->time,
+                'duration' => $this->getTimeSeconds(),
             ],
         );
     }
@@ -171,5 +177,24 @@ class CronMonitor
                 'Accept'        => 'application/json',
             ],
         ]);
+    }
+
+    public function getTime() : ?int
+    {
+        return $this->time;
+    }
+
+    public function getTimeEnd() : ?int
+    {
+        return $this->timeEnd;
+    }
+
+    public function getTimeSeconds() : ?int
+    {
+        if($this->time !== null && $this->timeEnd !== null) {
+            return $this->timeEnd - $this->time;
+        }
+
+        return null;
     }
 }
