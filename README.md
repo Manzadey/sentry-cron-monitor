@@ -1,6 +1,7 @@
 # Sentry Cron Monitor for PHP
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/manzadey/sentry-cron-monitor.svg?style=flat-square)](https://packagist.org/packages/manzadey/sentry-cron-monitor)
+[![PHPUnit tests](https://github.com/Manzadey/sentry-cron-monitor/actions/workflows/phpunit-tests.yml/badge.svg?event=push)](https://github.com/Manzadey/sentry-cron-monitor/actions/workflows/phpunit-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/manzadey/sentry-cron-monitor.svg?style=flat-square)](https://packagist.org/packages/manzadey/sentry-cron-monitor)
 <!--delete-->
 ---
