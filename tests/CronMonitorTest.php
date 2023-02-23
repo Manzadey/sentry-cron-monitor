@@ -22,8 +22,8 @@ class CronMonitorTest extends TestCase
     {
         $message = 'Copy the .env.example file with the name .env and fill in the variables with up-to-date data for the tests';
 
-        $this->assertNotEmpty($_ENV['PHPUNIT_DSN'] ?? '', $message);
-        $this->assertNotEmpty($_ENV['PHPUNIT_MONITOR_ID'] ?? '', $message);
+        $this->assertNotEmpty($_ENV['PHPUNIT_DSN'], $message);
+        $this->assertNotEmpty($_ENV['PHPUNIT_MONITOR_ID'], $message);
     }
 
     /**
